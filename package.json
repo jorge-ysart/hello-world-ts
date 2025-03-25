@@ -2,9 +2,10 @@
   "name": "hello-world-ts",
   "version": "1.0.0",
   "description": "A Hello World web app with TypeScript and Express",
+  "type": "module",
   "main": "dist/server.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp -r public dist/public",
     "start": "node dist/server.js",
     "dev": "ts-node src/server.ts"
   },

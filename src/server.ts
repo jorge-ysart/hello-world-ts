@@ -19,3 +19,17 @@ app.get("/", (_, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+
+app.get("/app1", (req, res) => {
+    res.setHeader("Content-Type", "text/html");
+  
+    let headersHtml = "<h1>HTTP Headers Received</h1><ul>";
+  
+    for (const [key, value] of Object.entries(req.headers)) {
+      headersHtml += `<li><strong>${key}:</strong> ${value}</li>`;
+    }
+  
+    headersHtml += "</ul>";
+  
+    res.send(headersHtml);
+  });

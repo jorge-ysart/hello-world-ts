@@ -1,19 +1,19 @@
-# Usa una imagen base
+# Usa Node oficial como base
 FROM node:18-alpine
 
-# Establece el directorio de trabajo
+# Directorio de trabajo
 WORKDIR /app
 
-# Copia archivos del proyecto
+# Copiar archivos
 COPY package*.json ./
 RUN npm install
 
+# Copiar el resto y compilar
 COPY . .
-
-# Compilar TypeScript
 RUN npm run build
 
-# Expone el puerto que usa tu app (ajústalo si usas otro)
+# Puerto que escucha la app
 EXPOSE 3000
 
+# Comando de arranque
 CMD ["npm", "start"]
